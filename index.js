@@ -3,6 +3,8 @@ const colors = require("colors")
 // const mongoose = require('mongoose');
 const app = express();
 
+require("dotenv").config()
+
 const route = require("./route")
 
 // Set EJS as the templating engine
@@ -34,11 +36,11 @@ app.use((req, res) => {
     message: "Route not found",
   });
 });
-const PORT = 3000;
+
 
 const startApp = async () => {
   try {
-  app.listen(PORT, console.log(`server is running on port ${PORT}`.red));
+  app.listen(process.env.PORT, console.log(`server is running on port ${process.env.PORT}`.red));
   } catch (error) {
     console.log(error);
   }
